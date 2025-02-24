@@ -30,7 +30,7 @@ class Lexer:
                     if token_type != 'WHITESPACE':
                         value = match.group(0)
                         if token_type == 'NUMBER':
-                            value == float(value)
+                            value = float(value)
                         self.tokens.append((token_type, value))
                     self.position = match.end()
                     break
@@ -40,8 +40,3 @@ class Lexer:
             
         return self.tokens
     
-
-expression = "8.5 / (2 * 9) - -3"
-lexer = Lexer(expression)
-tokens = lexer.tokenize()
-print(tokens)
