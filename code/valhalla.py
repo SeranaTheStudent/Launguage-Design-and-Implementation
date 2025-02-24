@@ -1,7 +1,7 @@
 import re
 
 TOKEN_TYPES = {
-    'NUMBER': r'\d+(\.\d+)?',
+    'NUMBER': r'-?\d+(\.\d+)?',
     'OPERATOR': r'[\+\-\*/]',
     'LPAREN': r'\(',
     'RPAREN': r'\)',
@@ -30,7 +30,7 @@ class Lexer:
                     if token_type != 'WHITESPACE':
                         value = match.group(0)
                         if token_type == 'NUMBER':
-                            value = float(value)
+                            value = round(float(value), 2) #round to 2 decimal places
                         self.tokens.append((token_type, value))
                     self.position = match.end()
                     break
