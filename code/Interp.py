@@ -23,5 +23,27 @@ def evaluate(rpn_expr):
                 if right == 0:
                     raise ZeroDivisionError("Cannot divide by zero")
                 stack.append(left / right)
+            elif token == '==':
+                stack.append(left == right)
+            elif token == '!=':
+                stack.append(left != right)
+            elif token == '<':
+                stack.append(left < right)
+            elif token == '>':
+                stack.append(left > right)
+            elif token == '<=':
+                stack.append(left <= right)
+            elif token == '>=':
+                stack.append(left >= right)
+            elif token == 'and':
+                stack.append(left and right)
+            elif token == 'or':
+                stack.append(left or right)
+            elif token == '!':
+                stack.append(not right)
+            elif token == 'true':
+                stack.append(True)
+            elif token == 'false':
+                stack.append(False)
 
     return stack[0]

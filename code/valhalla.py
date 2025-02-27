@@ -1,16 +1,5 @@
 import re
-
-TOKEN_TYPES = {
-    'NUMBER': r'-?\d+(\.\d+)?',
-    'OPERATOR': r'[\+\-\*/]',
-    'LPAREN': r'\(',
-    'RPAREN': r'\)',
-    'WHITESPACE': r'\s+',
-    'BOOLEAN': r'\btrue\b|\bfalse\b',
-    'COMPARISON': r'\<=|>=|<|>|==|!=',
-    'LOGICAL_OP': r'and|or',
-    'NOT': r'!'
-}
+from tokens import TOKENTYPES
 
 class Lexer:
     def __init__(self, input_text):
@@ -22,7 +11,7 @@ class Lexer:
         while self.position < len(self.input_text):
             match = None
 
-            for token_type, pattern in TOKEN_TYPES.items():
+            for token_type, pattern in token_types.items():
                 regex = re.compile(pattern)
                 match = regex.match(self.input_text, self.position)
 
@@ -31,6 +20,10 @@ class Lexer:
                         value = match.group(0)
                         if token_type == 'NUMBER':
                             value = round(float(value), 2) #round to 2 decimal places
+                        elif token_type == 'BOOLEAN_T':
+                            value = True 
+                        elif token_type == 'BOOLEAN_F':
+                            value = False
                         self.tokens.append((token_type, value))
                     self.position = match.end()
                     break
