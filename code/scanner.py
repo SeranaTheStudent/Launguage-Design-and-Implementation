@@ -46,4 +46,3 @@ class scanner:
         self.advance()
         return True
 
-

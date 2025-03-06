@@ -11,7 +11,7 @@ class Lexer:
         while self.position < len(self.input_text):
             match = None
 
-            for token_type, pattern in token_types.items():
+            for token_type, pattern in TOKENTYPES.items():
                 regex = re.compile(pattern)
                 match = regex.match(self.input_text, self.position)
 

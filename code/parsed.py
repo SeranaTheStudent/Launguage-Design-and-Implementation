@@ -7,16 +7,17 @@ OPERATOR_PRECEDENCE = {
     '==': 0, '!=': 0, '<': 0, '>': 0, '<=': 0, '>=': 0,
     'and': -1, 'or': -1, '!': 3
 }
+
 def parse(tokens):
     output_queue = []
     operator_stack = deque()
 
     for token_type, value in tokens:
-        if token_type == "NUMBER":
-            output_queue.append(float(value))
-        elif token_type == "OPERATOR" or token_type == "NOT":
-            while (operator_stack and operator_stack[-1] in OPERATOR_PRECEDENCE 
-                   and OPERATOR_PRECEDENCE[operator_stack[-1]] >= OPERATOR_PRECEDENCE[value]):
+        if token_type == "NUMBER" or token_type == "BOOLEAN_T" or token_type == "BOOLEAN_F":
+            output_queue.append(float(value) if token_type == "NUMBER" else value)
+        elif value in OPERATOR_PRECEDENCE:
+            while (operator_stack and operator_stack[-1] != '(' and operator_stack[-1] 
+                   and operator_stack[-1] in OPERATOR_PRECEDENCE and OPERATOR_PRECEDENCE[operator_stack[-1]] >= OPERATOR_PRECEDENCE[value]):
                 output_queue.append(operator_stack.pop())
             operator_stack.append(value)
         elif token_type == "LPAREN":
