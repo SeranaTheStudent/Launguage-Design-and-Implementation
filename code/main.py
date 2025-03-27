@@ -8,7 +8,7 @@ for i in f:
     tokens = lexer.tokenize()
 
     rpn_expr = parse(tokens)
-    print("RPN Output", rpn_expr)
+    print("RPN Output", [str(elem) for elem in rpn_expr])
     result = evaluate(rpn_expr)
 
     print(result)

@@ -1,9 +1,13 @@
+from codetypes import StringLiteral
+
 def evaluate(rpn_expr):
     stack = []
 
     for token in rpn_expr:
         if isinstance(token, (float, bool)): # If it's a number, push it to the stack
             stack.append(token)
+        elif isinstance(token, StringLiteral):
+            stack.append(token.value)
         else:
             if token == '!':
                 if len(stack) < 1:
@@ -12,7 +16,7 @@ def evaluate(rpn_expr):
                 stack.append(not operand)
             else:
                 if len(stack) < 2:
-                    raise ValueError("Invalid expression: not enough operands")
+                    raise ValueError(f"Invalid expression: not enough operands. Expected 2 but got {len(stack)}")
                     
                 right = stack.pop()
                 left = stack.pop()

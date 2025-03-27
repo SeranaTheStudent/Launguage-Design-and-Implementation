@@ -15,5 +15,7 @@ TOKENTYPES = {
     'ALERT_EQUAL': r'!=',
     'AND': r'and',
     'OR': r'or',
-    'NOT': r'!'
+    'NOT': r'!',
+    #'STRING': r'\".*\"'
+    'STRING': r'"[^"]*"'
 }
