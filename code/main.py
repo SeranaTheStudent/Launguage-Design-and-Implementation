@@ -2,8 +2,8 @@ from valhalla import Lexer
 from parsed import parse
 from Interp import evaluate
 
-expression = ["1 - 2", "2.5 + 2.5 - 1.25", "(10 * 2) / 6", "8.5 / (2 * 9) - -3", "true == false", "true != false", "(5 < 10)", "!(5 - 4 > 3 * 2 == !false)", "true and true", "false and true", "(0 < 1) or false", "false or false"]
-for i in expression:
+f = open("./testscript.txt", "r")
+for i in f:
     lexer = Lexer(i)
     tokens = lexer.tokenize()
 
