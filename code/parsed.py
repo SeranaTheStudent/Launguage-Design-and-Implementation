@@ -22,3 +22,9 @@ class Parser:
             raise EOFError("End of file, cannot retrieve next token")
         
         return self.tokens[self.current + 1]
+    
+    def check(self, token_type):
+        if self.at_end():
+            return False
+        
+        return self.peek().type == token_type
