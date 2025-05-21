@@ -17,5 +17,7 @@ TOKENTYPES = {
     'OR': r'or',
     'NOT': r'!',
     #'STRING': r'\".*\"'
-    'STRING': r'"[^"]*"'
+    'STRING': r'"[^"]*"',
+    'EOF': None
 }
+

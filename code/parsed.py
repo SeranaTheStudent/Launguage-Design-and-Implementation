@@ -2,33 +2,23 @@ from collections import deque
 from tokens import TOKENTYPES as tt
 from codetypes import StringLiteral
 
-def ParseError(Exception):
+class ParseError(Exception):
     def __init__(self,):
+        pass
 
 class Parser:
-    """
-    program     = declaration* eof ; (begining part)
-
-    declararation = varDec1
-                  | statement ;
-    varDec1       = "var" IDENTIFIER ( "=" expression )? ";" ;
-    statement     = express Statment
-                   | printStmt
-                   | block ;
-    block          = "{" ( declaration )* "}" ; 
-
-    exprStmt       = expression ";" ;
-    printStmt      = "print" expression ";" ;
-
-    expression     = assignment ;
-    assignment     = identifier ( "=" assingment )?
-                   | equality ;
-    equality       -> comparison ( ( "!=" | "==" ) comparison )*
-    comparison     -> term ( ( ">" | ">=" | "<" | "<=" ) term )*
-    term           -> factor ( ( "-" | "+" ) factor )*
-    factor         -> unary ( ( "/" | "*" ) unary )*
-    unary          -> ( "!" | "-" ) unary
-                   | primary
-    primary        -> NUMBER |  
-    """
-
+    def __init__(self, tokens):
+        self.tokens = tokens
+        self.current = 0
+    
+    def at_end(self):
+        return self.peek().type == tt.EOF
+    
+    def previous(self):
+        return self.tokens[self.current - 1]
+    
+    def next(self):
+        if self.at_end():
+            raise EOFError("End of file, cannot retrieve next token")
+        
+        return self.tokens[self.current + 1]

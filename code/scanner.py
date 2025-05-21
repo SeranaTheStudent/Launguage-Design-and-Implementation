@@ -45,4 +45,12 @@ class scanner:
 
         self.advance()
         return True
+    
+def scan_tokens(self):
+    while not self.is_at_end():
+        self.start = self.current
+        self.scan_token()  # your function for handling each matched token
+
+    self.tokens.append(('EOF', ''))  # This tells the parser we're done
+    return self.tokens
 
