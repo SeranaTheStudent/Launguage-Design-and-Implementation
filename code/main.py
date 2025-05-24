@@ -1,14 +1,14 @@
-from valhalla import Lexer
-from parsed import parse
-from Interp import evaluate
+from scanner import scanner
+from parsed import parser
+from Interp import Interpreter
 
 f = open("./testscript.txt", "r")
 for i in f:
-    lexer = Lexer(i)
-    tokens = lexer.tokenize()
+    lexer = scanner(i)
+    tokens = lexer.scan_tokens()
 
-    rpn_expr = parse(tokens)
-    print("RPN Output", [str(elem) for elem in rpn_expr])
-    result = evaluate(rpn_expr)
-
-    print(result)
+    rpn_expr = parser(tokens)
+    stmts = rpn_expr.parse()
+    interpreter = Interpreter()
+    for stmt in stmts:
+        interpreter.evaluate(stmt)
