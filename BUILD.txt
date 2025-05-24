@@ -1,0 +1,14 @@
+Build Instructions for the Python Interpreter
+
+Requirements:
+- Built with Python 3.13 (should work on higher also)
+- No external dependencies
+
+To run the interpreter:
+1. Open a terminal
+2. Navigate to the project folder
+3. Run: python3 main.py
+
+Ensure that 'testscript.txt' is outside the directory/folder from "main.py" directory (one folder above).
+
+(Optional) You can edit 'testscript.txt' to try different inputs.
