@@ -2,7 +2,7 @@ from scanner import scanner
 from parsed import parser
 from Interp import Interpreter
 
-f = open("./testscript.txt", "r")
+f = open("../testscript.txt", "r")
 for i in f:
     lexer = scanner(i)
     tokens = lexer.scan_tokens()
