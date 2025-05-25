@@ -1,0 +1,5 @@
+print(817 + 10);
+print(12 * 7 - 69);
+print(3 + (45 / 2) -1.55);
+print(true != true);
+print("I'm" + " " + "hungry" == "I'm hungry");

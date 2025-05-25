@@ -1,0 +1,5 @@
+print(82 + 11);
+print(11 / 7 + 65);
+print(69 + (200 * 3) + 0.05);
+print(false != false);
+print("England" + " " + "France" != "Britain");

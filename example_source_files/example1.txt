@@ -1,0 +1,5 @@
+print(69 + 351);
+print(9 * 8 - 3);
+print(5 + (76 / 9) * 3);
+print(true > false);
+print("High" + " " + "school");
