@@ -7,8 +7,6 @@ Requirements:
 To run the interpreter:
 1. Open a terminal
 2. Navigate to the project folder
-3. Run: python3 main.py
+3. Run: python3 main.py + you txt file name
 
-Ensure that 'testscript.txt' is outside the directory/folder from "main.py" directory (one folder above).
-
-(Optional) You can edit 'testscript.txt' to try different inputs.
+(Optional) You can edit 'testscript.txt' to try different inputs or name your own txt file.

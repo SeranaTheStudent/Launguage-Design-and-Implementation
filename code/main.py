@@ -1,8 +1,14 @@
 from scanner import scanner
 from parsed import parser
 from Interp import Interpreter
+import sys
 
-f = open("../testscript.txt", "r")
+if len(sys.argv) == 1:
+    print("Please input a valid file path to run.")
+    exit(1)
+
+file_path = sys.argv[1]    
+f = open(file_path, "r")
 for i in f:
     lexer = scanner(i)
     tokens = lexer.scan_tokens()

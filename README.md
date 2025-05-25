@@ -15,7 +15,7 @@ print(5 + 3 * 2);
 print(true and false);
 print(!(5 == 4));
 
-You can enter these style of expressions line by line in a 'testscript.txt' in this format: print(syntax here);
-The txt file needs to be outside the folder containing the main python scripts to work.
+You can enter these style of expressions line by line in a txt file in this format: print(syntax here);
+The txt file can be in any location, as long as the file path is correct.
 
 For further instructions to run the interpreter, see BUILD.txt.
